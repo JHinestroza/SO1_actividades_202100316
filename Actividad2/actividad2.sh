@@ -11,14 +11,11 @@ Tareas a realizar por el script:
     Crear un cronjob para que el script se ejecute cada 5 minutos
 '
 
-
-
 GITHUB_USER="JHinestroza"  
-API_URL="https://api.github.com/users/$GITHUB_USER"
-RESPONSE=$(curl -s "$API_URL")
+URL=$(curl -s "https://api.github.com/users/$GITHUB_USER")
 
-USER_ID=$(echo "$RESPONSE" | jq -r '.id')  #jq -r hace que imprima solo el valro de la clave json
-CREATED_AT=$(echo "$RESPONSE" | jq -r '.created_at')
+USER_ID=$(echo "$URL" | jq -r '.id')  #jq -r hace que imprima solo el valro de la clave json
+CREATED_AT=$(echo "$URL" | jq -r '.created_at')
 
 MESSAGE="Hola $GITHUB_USER. User ID: $USER_ID. Cuenta fue creada el: $CREATED_AT."
 echo "$MESSAGE"
@@ -29,3 +26,6 @@ mkdir -p "$LOG_DIR"
 
 LOG_FILE="$LOG_DIR/saludos.log"
 echo "$MESSAGE" > "$LOG_FILE"           
+
+#cronjob cada 5 minutos
+#*/5 * * * * /home/hinestroza/Desktop/SO1_actividades_202100316/Actividad2/actividad2.sh
