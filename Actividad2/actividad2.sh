@@ -28,4 +28,4 @@ LOG_DIR="/tmp/$DATE"
 mkdir -p "$LOG_DIR"
 
 LOG_FILE="$LOG_DIR/saludos.log"
-echo "$MESSAGE" > "$LOG_FILE"
+echo "$MESSAGE" > "$LOG_FILE"           
