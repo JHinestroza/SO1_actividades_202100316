@@ -22,5 +22,5 @@
 
      sudo systemctl start saludar.service
 
-     journalctl -u greeting.service
+     journalctl -u saludar.service
 
