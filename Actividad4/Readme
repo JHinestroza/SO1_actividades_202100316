@@ -1,0 +1,26 @@
+
+
+     [Unit]
+     Description=Servicio de saludo y fecha
+     
+     [Service]
+     ExecStart=/usr/local/bin/saludar.sh
+     Restart=always
+     User=hinestroza
+     
+     [Install]
+     WantedBy=multi-user.target
+
+
+**Comandos a utilizar**:
+
+
+
+     sudo systemctl daemon-reload
+
+     sudo systemctl enable saludar.service
+
+     sudo systemctl start saludar.service
+
+     journalctl -u greeting.service
+
